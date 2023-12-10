@@ -2,7 +2,7 @@
 const playlist1 = {
     header: 'Playlist',
     title: 'Hip-Hop Hits',
-    coverImageUrl: '/image/imagesOfPlayList1/coverList1.png',
+    coverImageUrl: './image/imagesOfPlayList1/coverList1.png',
     info: {
         tracksCount: 4,
         lenghtOfTracksInSeconds: 733,
@@ -10,28 +10,28 @@ const playlist1 = {
     },
     tracks: [
         {
-            trackCoverImageUrl: '.image/imagesOfPlayList1/coverEminem.png',
+            trackCoverImageUrl: './image/imagesOfPlayList1/coverEminem.png',
             nameOfArtist: 'Eminem',
             nameOfTrack: 'Rap God',
             isHot: true,
             audioUrl: './tracks/playlist1/Eminem_Rap_God.mp3'
         },
         {
-            trackCoverImageUrl: '.image/imagesOfPlayList1/cover50cent.png',
+            trackCoverImageUrl: './image/imagesOfPlayList1/cover50cent.png',
             nameOfArtist: '50cent',
             nameOfTrack: 'In Da Club',
             isHot: false,
             audioUrl: './tracks/playlist1/50_Cent_In_Da_Club.mp3',
         },
         {
-            trackCoverImageUrl: '/image/imagesOfPlayList1/coverDMX.png',
+            trackCoverImageUrl: './image/imagesOfPlayList1/coverDMX.png',
             nameOfArtist: 'DMX',
             nameOfTrack: "X Gon' Give It To Ya",
             isHot: true,
             audioUrl: './tracks/playlist1/DMX_X_Gon_Give_It_To_Ya.mp3',
         },
         {
-            trackCoverImageUrl: '/image/imagesOfPlayList1/coverEm&50cent.png',
+            trackCoverImageUrl: './image/imagesOfPlayList1/coverEm&50cent.png',
             nameOfArtist: 'Eminem, 50cent, Cashis, Lloyd Banks',
             nameOfTrack: "You Don't Know",
             isHot: false,
