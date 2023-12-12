@@ -69,7 +69,7 @@ const playlist2 = {
         },
         {
             trackCoverImageUrl: './image/imagesOfPlayList2/coverMcHummer.png',
-            nameOfArtist: 'Vc Hummer',
+            nameOfArtist: 'MC Hummer',
             nameOfTrack: "You Can't Touch This",
             isHot: true,
             audioUrl: "./tracks/playlist2/Mc_Hammer_You_Can't_Touch_This.mp3",
