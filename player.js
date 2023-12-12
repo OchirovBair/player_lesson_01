@@ -84,6 +84,8 @@ const playlist2 = {
     ]
 }
 
+const imgSource = './image/hotMark.svg';
+
 // render
 renderPlaylist(playlist1);
 renderPlaylist(playlist2);
@@ -91,22 +93,21 @@ renderPlaylist(playlist2);
 // functions
 function renderPlaylist(playlistForRendering) {
     renderPlaylistHeader(playlistForRendering, playlistForRendering.className);
-    renderTrack(playlistForRendering.tracks[0], playlistForRendering.className);
-    renderTrack(playlistForRendering.tracks[1], playlistForRendering.className);
-    renderTrack(playlistForRendering.tracks[2], playlistForRendering.className);
-    renderTrack(playlistForRendering.tracks[3], playlistForRendering.className);
+    playlistForRendering.tracks.forEach(track=>{
+        renderTrack(track,playlistForRendering.className)
+    })
 }
 
 
 function renderPlaylistHeader(inputPlaylistForRendering, inPutClassName) {
 
-    let infoAreaElement = document.querySelector('.' + inPutClassName);
+    const infoAreaElement = document.querySelector('.' + inPutClassName);
 
-    let headerOfPlaylistElement = document.createElement('p');
+    const headerOfPlaylistElement = document.createElement('p');
     headerOfPlaylistElement.append(inputPlaylistForRendering.header);
     infoAreaElement.append(headerOfPlaylistElement);
 
-    let titleOfPlaylistElement = document.createElement('h2');
+    const titleOfPlaylistElement = document.createElement('h2');
     titleOfPlaylistElement.append(inputPlaylistForRendering.title);
     infoAreaElement.append(titleOfPlaylistElement);
 
@@ -135,9 +136,9 @@ function renderTrack(inputTrackForRendering, inPutClassName) {
     coverElement.src = inputTrackForRendering.trackCoverImageUrl;
     trackContainer.append(coverElement);
 
-    if (inputTrackForRendering.isHot == true) {
+    if (inputTrackForRendering.isHot) {
         let hotMarkElement = document.createElement('img');
-        hotMarkElement.src = './image/hotMark.svg';
+        hotMarkElement.src = imgHotSource;
         trackContainer.append(hotMarkElement);
     };
 
