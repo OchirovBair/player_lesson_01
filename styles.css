@@ -1,0 +1,12 @@
+header {
+    background-color: #1A1A1ACC;
+}
+
+main, section {
+    background-color: #121212;;
+    color: #FFFFFF;
+}
+
+.first, .second {
+    background-color: #1C1C1C;
+}
