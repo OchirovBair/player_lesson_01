@@ -1,11 +1,12 @@
 // data
 const playlist1 = {
+    className: 'first',
     header: 'Playlist',
     title: 'Hip-Hop Hits',
     coverImageUrl: './image/imagesOfPlayList1/coverList1.png',
     info: {
         tracksCount: 4,
-        lenghtOfTracksInSeconds: 733,
+        lenghtOfTracksInSeconds: 942,
         descritionOfListArtists: ['Eminem', '50cent', 'Lloyd Banks', 'and others']
     },
     tracks: [
@@ -41,30 +42,71 @@ const playlist1 = {
 
 }
 
+const playlist2 = {
+    className: 'second',
+    header: 'Playlist',
+    title: 'Rap Hits 1990s',
+    coverImageUrl: './image/imagesOfPlayList2/coverList2.png',
+    info: {
+        tracksCount: 4,
+        lenghtOfTracksInSeconds: 1081,
+        descritionOfListArtists: ['Vanila Ice', 'MC Hummer', 'Public Enemy', 'and others']
+    },
+    tracks: [
+        {
+            trackCoverImageUrl: './image/imagesOfPlayList2/coverPublicEnemy.png',
+            nameOfArtist: 'Public Enemy',
+            nameOfTrack: 'Fight The Power',
+            isHot: true,
+            audioUrl: './tracks/playlist2/Public_Enemy_Fight_The_Power.mp3'
+        },
+        {
+            trackCoverImageUrl: './image/imagesOfPlayList2/coverVanilaIce.png',
+            nameOfArtist: 'Vanila Ice',
+            nameOfTrack: 'Ice Ice Baby',
+            isHot: false,
+            audioUrl: './tracks/playlist2/Vanila_Ice_Ice_Baby.mp3',
+        },
+        {
+            trackCoverImageUrl: './image/imagesOfPlayList2/coverMcHummer.png',
+            nameOfArtist: 'Vc Hummer',
+            nameOfTrack: "You Can't Touch This",
+            isHot: true,
+            audioUrl: "./tracks/playlist2/Mc_Hammer_You_Can't_Touch_This.mp3",
+        },
+        {
+            trackCoverImageUrl: './image/imagesOfPlayList2/coverBrandNubian.png',
+            nameOfArtist: 'Brand Nubian',
+            nameOfTrack: "Brand Nubian",
+            isHot: false,
+            audioUrl: './tracks/playlist2/Brand_Nubian_Brand_Nubian.mp3',
+        },
+    ]
+}
 
 // render
-
 renderPlaylist(playlist1);
+renderPlaylist(playlist2);
 
+// functions
 function renderPlaylist(playlistForRendering) {
-    renderPlaylistHeader(playlistForRendering);
-    renderTrack(playlistForRendering.tracks[0]);
-    renderTrack(playlistForRendering.tracks[1]);
-    renderTrack(playlistForRendering.tracks[2]);
-    renderTrack(playlistForRendering.tracks[3]);
+    renderPlaylistHeader(playlistForRendering, playlistForRendering.className);
+    renderTrack(playlistForRendering.tracks[0], playlistForRendering.className);
+    renderTrack(playlistForRendering.tracks[1], playlistForRendering.className);
+    renderTrack(playlistForRendering.tracks[2], playlistForRendering.className);
+    renderTrack(playlistForRendering.tracks[3], playlistForRendering.className);
 }
 
 
-function renderPlaylistHeader(inputPlaylistForRendering) {
+function renderPlaylistHeader(inputPlaylistForRendering, inPutClassName) {
 
-    let infoAreaElement = document.createElement('div');
-    document.body.append(infoAreaElement);
+    let infoAreaElement = document.querySelector('.' + inPutClassName);
 
     let headerOfPlaylistElement = document.createElement('p');
     headerOfPlaylistElement.append(inputPlaylistForRendering.header);
     infoAreaElement.append(headerOfPlaylistElement);
 
-    let titleOfPlaylistElement = document.createElement('h1');
+    let titleOfPlaylistElement = document.createElement('h2');
     titleOfPlaylistElement.append(inputPlaylistForRendering.title);
     infoAreaElement.append(titleOfPlaylistElement);
 
@@ -82,20 +124,31 @@ function renderPlaylistHeader(inputPlaylistForRendering) {
 
 };
 
-function renderTrack(inputTrackForRendering) {
+function renderTrack(inputTrackForRendering, inPutClassName) {
 
-    let trackElement = document.createElement('div');
-    trackElement.append(inputTrackForRendering.nameOfArtist + ' - ' + inputTrackForRendering.nameOfTrack);
-    document.body.append(trackElement);
+    let trackAreaElement = document.querySelector('.' + inPutClassName);
+
+    let trackContainer = document.createElement('div');
+    trackAreaElement.append(trackContainer);
 
     let coverElement = document.createElement('img');
     coverElement.src = inputTrackForRendering.trackCoverImageUrl;
-    document.body.append(coverElement);
+    trackContainer.append(coverElement);
+
+    if (inputTrackForRendering.isHot == true) {
+        let hotMarkElement = document.createElement('img');
+        hotMarkElement.src = './image/hotMark.svg';
+        trackContainer.append(hotMarkElement);
+    };
+
+    let trackElement = document.createElement('span');
+    trackElement.append(inputTrackForRendering.nameOfArtist + ' - ' + inputTrackForRendering.nameOfTrack);
+    trackContainer.append(trackElement);
 
     let audioElement = document.createElement('audio');
     audioElement.controls = true;
     audioElement.src = inputTrackForRendering.audioUrl;
-    document.body.append(audioElement);
+    trackContainer.append(audioElement);
 
 };
 
