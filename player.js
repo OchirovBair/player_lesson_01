@@ -84,7 +84,7 @@ const playlist2 = {
     ]
 }
 
-const imgSource = './image/hotMark.svg';
+const imgHotSource = './image/hotMark.svg';
 
 // render
 renderPlaylist(playlist1);
@@ -111,15 +111,15 @@ function renderPlaylistHeader(inputPlaylistForRendering, inPutClassName) {
     titleOfPlaylistElement.append(inputPlaylistForRendering.title);
     infoAreaElement.append(titleOfPlaylistElement);
 
-    let coverImageOfPlaylistElement = document.createElement('img');
+    const coverImageOfPlaylistElement = document.createElement('img');
     coverImageOfPlaylistElement.src = inputPlaylistForRendering.coverImageUrl;
     infoAreaElement.append(coverImageOfPlaylistElement);
 
-    let tracksCountElement = document.createElement('p');
+    const tracksCountElement = document.createElement('p');
     tracksCountElement.textContent = inputPlaylistForRendering.info.tracksCount + ' tracks';
     infoAreaElement.append(tracksCountElement);
 
-    let lenghtOfTracksElement = document.createElement('p');
+    const lenghtOfTracksElement = document.createElement('p');
     lenghtOfTracksElement.textContent = Math.round(inputPlaylistForRendering.info.lenghtOfTracksInSeconds / 60) + 'm' + ' ' + inputPlaylistForRendering.info.lenghtOfTracksInSeconds % 60 + 's';
     infoAreaElement.append(lenghtOfTracksElement);
 
@@ -127,26 +127,26 @@ function renderPlaylistHeader(inputPlaylistForRendering, inPutClassName) {
 
 function renderTrack(inputTrackForRendering, inPutClassName) {
 
-    let trackAreaElement = document.querySelector('.' + inPutClassName);
+    const trackAreaElement = document.querySelector('.' + inPutClassName);
 
-    let trackContainer = document.createElement('div');
+    const trackContainer = document.createElement('div');
     trackAreaElement.append(trackContainer);
 
-    let coverElement = document.createElement('img');
+    const coverElement = document.createElement('img');
     coverElement.src = inputTrackForRendering.trackCoverImageUrl;
     trackContainer.append(coverElement);
 
     if (inputTrackForRendering.isHot) {
-        let hotMarkElement = document.createElement('img');
+        const hotMarkElement = document.createElement('img');
         hotMarkElement.src = imgHotSource;
         trackContainer.append(hotMarkElement);
     };
 
-    let trackElement = document.createElement('span');
+    const trackElement = document.createElement('span');
     trackElement.append(inputTrackForRendering.nameOfArtist + ' - ' + inputTrackForRendering.nameOfTrack);
     trackContainer.append(trackElement);
 
-    let audioElement = document.createElement('audio');
+    const audioElement = document.createElement('audio');
     audioElement.controls = true;
     audioElement.src = inputTrackForRendering.audioUrl;
     trackContainer.append(audioElement);
