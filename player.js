@@ -93,9 +93,9 @@ renderPlaylist(playlist2);
 // functions
 function renderPlaylist(playlistForRendering) {
     renderPlaylistHeader(playlistForRendering, playlistForRendering.className);
-    playlistForRendering.tracks.forEach(track=>{
-        renderTrack(track,playlistForRendering.className)
-    })
+    for (let i = 0; i < playlistForRendering.tracks.length; i++) {
+        renderTrack(playlistForRendering.tracks[i], playlistForRendering.className);
+    }
 }
 
 
@@ -152,12 +152,3 @@ function renderTrack(inputTrackForRendering, inPutClassName) {
     trackContainer.append(audioElement);
 
 };
-
-
-
-
-
-
-
-
-
