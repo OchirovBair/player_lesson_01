@@ -2,7 +2,6 @@
 
 export const playlists = [
     {
-        className: 'first',
         header: 'Playlist',
         title: 'Hip-Hop Hits',
         coverImageUrl: './image/imagesOfPlayList1/coverList1.png',
@@ -42,7 +41,6 @@ export const playlists = [
         ]
     },
     {
-        className: 'second',
         header: 'Playlist',
         title: 'Rap Hits 1990s',
         coverImageUrl: './image/imagesOfPlayList2/coverList2.png',

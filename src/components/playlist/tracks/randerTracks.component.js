@@ -1,26 +1,12 @@
-export function renderTrack(inputTrackForRendering, inPutClassName) {
+import { createElementWithClass } from "../../../helpers.js";
+import { randerOneTrack } from "./randerTrack.component.js";
 
-    const trackAreaElement = document.querySelector('.' + inPutClassName);
+export function renderTracklist(inputTrackForRendering, areaOfPlaylist) {
 
-    const trackContainer = document.createElement('div');
-    trackAreaElement.append(trackContainer);
+    const tracksContainer = createElementWithClass('ul', 'tracklist');
+    areaOfPlaylist.append(tracksContainer);
 
-    const coverElement = document.createElement('img');
-    coverElement.src = inputTrackForRendering.trackCoverImageUrl;
-    trackContainer.append(coverElement);
-
-    if (inputTrackForRendering.isHot) {
-        const hotMarkElement = '🔥';
-        trackContainer.append(hotMarkElement);
-    };
-
-    const trackElement = document.createElement('span');
-    trackElement.append(inputTrackForRendering.nameOfArtist + ' - ' + inputTrackForRendering.nameOfTrack);
-    trackContainer.append(trackElement);
-
-    const audioElement = document.createElement('audio');
-    audioElement.controls = true;
-    audioElement.src = inputTrackForRendering.audioUrl;
-    trackContainer.append(audioElement);
-
+    inputTrackForRendering.tracks.forEach(track => {
+        randerOneTrack(track, tracksContainer)
+    });
 };

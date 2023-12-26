@@ -1,25 +1,35 @@
-export function renderPlaylistHeader(inputPlaylistForRendering, inPutClassName) {
+import { createElementWithClass } from "../../../helpers.js";
 
-    const infoAreaElement = document.querySelector('.' + inPutClassName);
+export function renderPlaylistHeader(inputPlaylistForRendering, areaOfPlaylist) {
 
-    const headerOfPlaylistElement = document.createElement('p');
-    headerOfPlaylistElement.append(inputPlaylistForRendering.header);
-    infoAreaElement.append(headerOfPlaylistElement);
+    const infoContainer = createElementWithClass('div', 'infoContainer');
+    areaOfPlaylist.append(infoContainer);
 
-    const titleOfPlaylistElement = document.createElement('h2');
-    titleOfPlaylistElement.append(inputPlaylistForRendering.title);
-    infoAreaElement.append(titleOfPlaylistElement);
-
-    const coverImageOfPlaylistElement = document.createElement('img');
+    const coverImageOfPlaylistElement = createElementWithClass('img', 'coverImageOfPlaylist');
     coverImageOfPlaylistElement.src = inputPlaylistForRendering.coverImageUrl;
-    infoAreaElement.append(coverImageOfPlaylistElement);
+    infoContainer.append(coverImageOfPlaylistElement);
 
-    const tracksCountElement = document.createElement('p');
-    tracksCountElement.textContent = inputPlaylistForRendering.info.tracksCount + ' tracks';
-    infoAreaElement.append(tracksCountElement);
+    const textContainer = createElementWithClass('div', 'textContainer');
+    infoContainer.append(textContainer);
 
-    const lenghtOfTracksElement = document.createElement('p');
-    lenghtOfTracksElement.textContent = Math.round(inputPlaylistForRendering.info.lenghtOfTracksInSeconds / 60) + 'm' + ' ' + inputPlaylistForRendering.info.lenghtOfTracksInSeconds % 60 + 's';
-    infoAreaElement.append(lenghtOfTracksElement);
+    const headerOfPlaylistElement = createElementWithClass('h3', 'headerOfPlaylist');
+    headerOfPlaylistElement.append(inputPlaylistForRendering.header);
+    textContainer.append(headerOfPlaylistElement);
 
+    const titleOfPlaylistElement = createElementWithClass('h2', 'titleOfPlaylist');
+    titleOfPlaylistElement.append(inputPlaylistForRendering.title);
+    textContainer.append(titleOfPlaylistElement);
+
+    const lenghtOfTracksElement = Math.round(inputPlaylistForRendering.info.lenghtOfTracksInSeconds / 60) + 'm' + ' ' + inputPlaylistForRendering.info.lenghtOfTracksInSeconds % 60 + 's';
+
+    const tracksCountElement = createElementWithClass('span', 'tracksCount');
+    tracksCountElement.textContent = inputPlaylistForRendering.info.tracksCount + ' tracks, ' + lenghtOfTracksElement;
+    textContainer.append(tracksCountElement);
+
+    const artistsInPlaylistelement = createElementWithClass('span', 'artistsInPlaylist');
+    const arr = inputPlaylistForRendering.tracks.slice(0,3);
+    const artists = arr.map((ele) => ele.nameOfArtist).join(', ');
+    artistsInPlaylistelement.append(artists, ' and others');
+    textContainer.append(artistsInPlaylistelement);
 };
+
