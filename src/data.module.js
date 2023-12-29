@@ -7,8 +7,7 @@ export const playlists = [
         coverImageUrl: './image/imagesOfPlayList1/coverList1.png',
         info: {
             tracksCount: 4,
-            lenghtOfTracksInSeconds: 942,
-            descritionOfListArtists: ['Eminem', '50cent', 'Lloyd Banks', 'and others']
+            lengthOfTracksInSeconds: 942,
         },
         tracks: [{
                 trackCoverImageUrl: './image/imagesOfPlayList1/coverEminem.png',
@@ -46,8 +45,7 @@ export const playlists = [
         coverImageUrl: './image/imagesOfPlayList2/coverList2.png',
         info: {
             tracksCount: 4,
-            lenghtOfTracksInSeconds: 1081,
-            descritionOfListArtists: ['Vanila Ice', 'MC Hummer', 'Public Enemy', 'and others']
+            lengthOfTracksInSeconds: 1081,
         },
         tracks: [{
                 trackCoverImageUrl: './image/imagesOfPlayList2/coverPublicEnemy.png',
