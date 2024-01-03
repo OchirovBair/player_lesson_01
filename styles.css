@@ -1,16 +1,223 @@
+/* 
+1. Правильно ссылку в Header сделал чтобы она не была фиолетовой и подчеркнутой?
+2. почему нет между плейлистами зазора, хотя я задал gap:12px
+3. Внизу полоса белая когда масштаб увеличиваешь
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: SF UI Display, sans-serif;
+    font-style: normal;
+    line-height: normal;
+}
+
+header {
+    background: rgba(26, 26, 26, 0.8);
+    color: #F6BD41;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+main {
+    background-color: #121212;
+    color: #FFFFFF;
+}
+
+
 ul {
     list-style: none;
 }
 
-header {
-    background-color: #1A1A1ACC;
+a {
+    text-decoration: none;
 }
 
-main, section {
-    background-color: #121212;;
-    color: #FFFFFF;
+a:visited {
+    color: #F6BD41;
 }
 
-.first, .second {
-    background-color: #1C1C1C;
+.mainContainer {
+    height: 100%;
+    width: 100%;
+    max-width: 1152px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid red;
 }
+
+/* ------------------header---------------------- */
+
+header > div > span > a {
+    padding: 12px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* ------------------main---------------------- */
+
+main > div {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    margin-top: 31px;
+    margin-bottom: 29px;
+    color: #FFF;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.mainSection {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    border-radius: 4px;
+    background: #1C1C1C;
+    @media (max-width: 992px) {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.playlist {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 24px;
+    padding-right: 36px;
+    padding-bottom: 47px;
+    padding-left: 36px;
+    max-width: 570px;
+
+    @media (max-width: 992px) {
+        max-width: 100%;
+    }
+    @media (max-width: 576px) {
+        padding: 24px;
+    }
+    @media (max-width: 390px) {
+        padding: 14px;
+    }
+}
+
+.headContainerOfPlaylist {
+    display: flex;
+    gap: 24px;
+    @media (max-width: 441px) {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.coverImageOfPlaylist {
+    max-width: 170px;
+    max-height: 176px;
+}
+
+.headTextOfPlaylist {
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    margin-bottom: 10px;
+    
+    color: #FFF;
+    font-size: 30px;
+    font-weight: 700;
+}
+h3 {
+    margin-top: 7px;
+    margin-bottom: 23px;
+
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px; 
+}
+
+.tracksCount {
+    margin-bottom: 11px;
+
+    color: #8A8A8A;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px; 
+}
+
+.artistsInPlaylist {
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.otherArtistsInPlaylist {
+    color: #8A8A8A;
+    font-weight: 400;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+li {
+    display: flex;
+    height: 48px;
+    gap: 12px;
+}
+
+.trackInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.trackTitle {
+    display: flex;
+    gap: 6px;
+}
+
+.artistName {
+    color: #FFF;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.trackName {
+    color: #8A8A8A;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.audioTrack {
+    max-height: 24px;
+    border-radius: 4px;
+    filter: invert(100%);
+    max-width: 100%;
+}
+
+.audioTrack::-webkit-media-controls-enclosure {
+    border-radius: 4px;
+    color: #fff;
+}
+
+
+
+
+

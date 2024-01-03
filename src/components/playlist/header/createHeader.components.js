@@ -3,7 +3,7 @@ import {CoverPlaylist} from "./header-components/CoverPlaylist.js";
 import {PlaylistText} from "./header-components/PlaylistText.js";
 
 export function PlaylistHeader(inputPlaylistForRendering) {
-    const container = createElementWithClass('div', 'container');
+    const container = createElementWithClass('div', 'headContainerOfPlaylist');
 
     const createCoverPlaylist = CoverPlaylist(inputPlaylistForRendering);
     container.append(createCoverPlaylist);

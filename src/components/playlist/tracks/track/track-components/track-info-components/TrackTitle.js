@@ -8,9 +8,13 @@ export function TrackTitle(inputData) {
         trackTitleElement.append(hotMarkElement);
     };
 
-    const trackElement = createElementWithClass('span', 'nameTrack');
+    const trackElement = createElementWithClass('span', 'fullTrackName');
+    const artistNameElement = createElementWithClass('span', 'artistName');
+    const trackNameElement = createElementWithClass('span', 'trackName');
+    artistNameElement.append(inputData.nameOfArtist);
+    trackNameElement.append(inputData.nameOfTrack);
 
-    trackElement.append(inputData.nameOfArtist + ' - ' + inputData.nameOfTrack);
+    trackElement.append(artistNameElement, ' - ', trackNameElement);
     trackTitleElement.append(trackElement);
     return trackTitleElement;
 }
