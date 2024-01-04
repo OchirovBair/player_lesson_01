@@ -20,6 +20,8 @@ body {
     font-family: SF UI Display, sans-serif;
     font-style: normal;
     line-height: normal;
+    background-color: #121212;
+    color: #FFFFFF;
 }
 
 header {
@@ -27,13 +29,8 @@ header {
     color: #F6BD41;
     font-size: 18px;
     font-weight: 700;
-}
 
-main {
-    background-color: #121212;
-    color: #FFFFFF;
 }
-
 
 ul {
     list-style: none;
@@ -53,16 +50,24 @@ a:visited {
     max-width: 1152px;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    @media (max-width: 992px) {
+        max-width: 570px;
+    }
 }
 
 /* ------------------header---------------------- */
 
-header > div > span > a {
+.mainLink {
+    display: flex;
+}
+
+.link {
     padding: 12px 0;
     display: flex;
     flex-direction: row;
     align-items: center;
+    gap: 8px;
 }
 
 /* ------------------main---------------------- */
@@ -85,7 +90,7 @@ h1 {
     flex-direction: row;
     gap: 12px;
     border-radius: 4px;
-    background: #1C1C1C;
+    margin-bottom: 36px;
     @media (max-width: 992px) {
         flex-direction: column;
         align-items: center;
@@ -95,21 +100,16 @@ h1 {
 .playlist {
     display: flex;
     flex-direction: column;
+    background: #1C1C1C;
+    flex: 1;
     gap: 30px;
     padding-top: 24px;
     padding-right: 36px;
     padding-bottom: 47px;
     padding-left: 36px;
     max-width: 570px;
-
     @media (max-width: 992px) {
-        max-width: 100%;
-    }
-    @media (max-width: 576px) {
-        padding: 24px;
-    }
-    @media (max-width: 390px) {
-        padding: 14px;
+        width: 100%;
     }
 }
 
@@ -186,6 +186,7 @@ li {
     display: flex;
     flex-direction: column;
     gap: 9px;
+    flex: 1;
 }
 
 .trackTitle {
@@ -209,6 +210,7 @@ li {
     max-height: 24px;
     border-radius: 4px;
     filter: invert(100%);
+    width: 347px;
     max-width: 100%;
 }
 

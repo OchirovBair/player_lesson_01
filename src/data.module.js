@@ -78,3 +78,9 @@ export const playlists = [
         ]
     }
 ]
+
+// export function totalDuration(duration) {
+//     const number = 0;
+//     number += duration;
+//     return number;
+// }
